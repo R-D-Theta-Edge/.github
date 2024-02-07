@@ -10,5 +10,5 @@ There are several Github Actions file for your references. Before using it, read
 
 | Project Type | Folder |
 |--|--|
-| **Laravel** | [Manual](./actions/laravel/latest/Readme.MD) |
+| **Laravel** | [Manual](./actions/laravel/Readme.MD) |
 |	|	|
