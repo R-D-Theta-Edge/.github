@@ -1,0 +1,39 @@
+name: Unit Test
+
+on:
+  push:
+    branches:
+      - BRANCHNAME
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    env:
+      DB_CONNECTION: sqlite
+      DB_DATABASE: database/database.sqlite
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.1'
+        extensions: pdo, sqlite, zip
+    - name: Install Composer dependencies
+      run: composer install --no-interaction
+    - name: Copy .env file
+      run: cp .env.example .env
+    - name: Run NPM
+      run: npm install && npm run build
+    - name: Generate application key
+      run: php artisan key:generate
+    - name: Create SQLite database
+      run: touch database/database.sqlite
+    - name: Migrate database
+      run: php artisan migrate --force
+    - name: Seed database
+      run: php artisan db:seed --force
+    - name: Run tests
+      run: vendor/bin/phpunit

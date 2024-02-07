@@ -1,0 +1,32 @@
+name: ACTION NAME
+
+on:
+  push:
+    branches:
+      - BRANCHNAME
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Push to WHICH Server
+    steps:
+    - name: Connect Tailscale
+      uses: tailscale/github-action@v2
+      with:
+        authkey: ${{ secrets.TAILSCALE_AUTHKEY }}     
+    - name: SSH Remote Commands
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: ${{ secrets.SERVERTYPE_HOSTNAME }}  
+        username: ${{ secrets.SERVERTYPE_USERNAME }}
+        password: ${{ secrets.SERVERTYPE_PASSWORD }}
+        script: |
+          cd /PATH/TO/PROJECT
+          git checkout BRANCHNAME
+          git pull
+          composer install -o -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+    - name: Exit Tailscale
+      run: |
+        echo "Log out tailscale"
+        sudo tailscale logout
+        echo "Logout"
