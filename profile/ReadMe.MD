@@ -1,17 +1,17 @@
 <h1 align="center">Hello! This is Theta Innovation Research and Development Github Repository</h1>
-<h3 align="center">List of our projects:</h3>
+<h3 align="center">List of our applications and systems:</h3>
 
-- SakuPay, our e-Wallet Solution [SakuPay](sakupay.my)
-- Hajj Mobility, our end to end Hajj Pilgrimage management suite, developed for Tabung Haji **Hajj Mobility**
+- SakuPay, an e-Wallet Application [SakuPay](sakupay.my)
+- Hajj Mobility, Hajj Pilgrimage management system, developed for Tabung Haji
 - PilgrimPro, a personalized umrah travel application. [PilgrimPro](pilgrimpro.thetamobile.com)
-- Qalqa, our multi-tenant cloud based accounting solution. [Qalqa](calmy.thetamobile.com)
-
+- Qalqa, multi-tenant cloud based accounting solution. [Qalqa](calmy.thetamobile.com)
+- eProq, online procurement management.
 
 
 <h3 align="left">Web and API Development Stack:</h3>
 <p align="left"> 
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> 
-<a href="https://laravel.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/laravel/laravel-plain-wordmark.svg" alt="laravel" width="40" height="40"/> </a> 
+<a href="https://laravel.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/laravel/laravel-original.svg" alt="laravel" width="40" height="40"/> </a> 
 <a href="https://postman.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="40" height="40"/> </a>
 <a href="https://www.php.net" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" alt="php" width="40" height="40"/> </a>
 
