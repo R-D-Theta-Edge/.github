@@ -40,7 +40,7 @@
 
 
 <h3 align="left">Theta Innovation's Developer Resources :</h3>
-[README](https://github.com/R-D-Theta-Edge/.github/blob/main/README.md)
+[Resources](%5BREADME%5D%28https://github.com/R-D-Theta-Edge/.github/blob/main/README.md%29)
 
 
  
