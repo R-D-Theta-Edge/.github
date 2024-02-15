@@ -3,8 +3,8 @@
 
 - SakuPay, an e-Wallet Application [SakuPay](sakupay.my)
 - Hajj Mobility, Hajj Pilgrimage management system, developed for Tabung Haji
-- PilgrimPro, a personalized umrah travel application. [PilgrimPro](pilgrimpro.thetamobile.com)
-- Qalqa, multi-tenant cloud based accounting solution. [Qalqa](calmy.thetamobile.com)
+- PilgrimPro, a personalized umrah travel application. [PilgrimPro]("http://pilgrimpro.thetamobile.com")
+- Qalqa, multi-tenant cloud based accounting solution. [Qalqa]("http://calmy.thetamobile.com")
 - eProq, online procurement management.
 
 
