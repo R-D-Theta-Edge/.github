@@ -1,11 +1,12 @@
 <h1 align="center">Hello! This is Theta Innovation Research and Development Github Repository</h1>
 <h3 align="center">List of our applications and systems:</h3>
 
-- SakuPay, an e-Wallet Application [SakuPay](sakupay.my)
+- [SakuPay](sakupay.my), an e-Wallet Application
 - Hajj Mobility, Hajj Pilgrimage management system, developed for Tabung Haji
-- PilgrimPro, a personalized umrah travel application. [PilgrimPro]("http://pilgrimpro.thetamobile.com")
-- Qalqa, multi-tenant cloud based accounting solution. [Qalqa]("http://calmy.thetamobile.com")
-- eProq, online procurement management.
+- [PilgrimPro](http://pilgrimpro.thetamobile.com), a personalized umrah travel application. 
+- [Qalqa](http://calmy.thetamobile.com), multi-tenant cloud based accounting solution. 
+- [BuyHub](http://buyhub.thetamobile.com), online procurement management. 
+- [Blueprint-iOGSE](http://blueprint.iogse.gov.my), KPI Management System for Malaysia Petroleum Resources Corporation (MPRC).
 
 
 <h3 align="left">Web and API Development Stack:</h3>
