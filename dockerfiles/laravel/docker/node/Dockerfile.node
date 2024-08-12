@@ -1,0 +1,38 @@
+FROM ubuntu:22.04
+
+
+RUN apt-get update && apt-get install -y nano curl wget git
+
+
+# install node 20
+RUN curl -sL https://deb.nodesource.com/setup_20.x | bash -
+RUN apt-get install -y nodejs
+
+
+# setup PATH for node
+ENV PATH /usr/bin/node_modules/.bin:$PATH
+
+#print node version
+RUN node -v
+
+
+
+# copy from frontend to /usr/src/app
+COPY ./frontend /usr/src/app
+
+# set working directory
+WORKDIR /usr/src/app
+
+ENV NUXT_HOST=0.0.0.0
+
+
+# install dependencies
+RUN npm install
+
+
+#expose port
+EXPOSE 3000
+EXPOSE 24678
+
+# start app
+CMD ["npm", "run", "dev"]

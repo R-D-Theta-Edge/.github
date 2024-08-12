@@ -1,0 +1,83 @@
+services:
+
+  mypassfe-node:
+    build:
+      dockerfile: ./docker/node/Dockerfile.node
+    container_name: mypassfe-node
+    working_dir: /usr/src/app
+    ports:
+      - "3000:3000"
+      - "24678:24678"
+    networks:
+      - mypass-network
+    restart: always
+
+  mypassapi:
+    build: 
+      dockerfile: ./docker/php/Dockerfile.php
+    container_name: mypass
+    working_dir: /var/www/mypassapi
+    networks:
+      - mypass-network
+    ports:
+      - "9000:9000"
+
+  mypass-webserver:
+    image: nginx:alpine
+    container_name: webserver
+    volumes:
+      - ./backend:/var/www/mypassapi
+      - ./docker/nginx/api.conf:/etc/nginx/conf.d/api.conf
+      - ./frontend:/app
+      - ./docker/nginx/node.conf:/etc/nginx/conf.d/node.conf
+    ports:
+      - "80:80"
+      - "443:443"
+    links:
+      - mypassapi
+    networks:
+      - mypass-network
+
+  db:
+    image: postgres:15
+    container_name: mypass_db
+    restart: always
+    environment:
+      POSTGRES_DB: laravel
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5434:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - mypass-network
+
+  mypass-minio:
+    image: minio/minio
+    container_name: mypass-minio
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ACCESS_KEY: minio
+      MINIO_SECRET_KEY: minio123
+      MINIO_DEFAULT_BUCKETS: mypassbucket
+    volumes:
+      - miniostorage:/data
+    ports:
+      - "9001:9000"
+      - "9002:9001"
+    networks:
+      - mypass-network
+    restart: always
+
+volumes:
+  miniostorage:
+    driver: local
+  db_data:
+    driver: local
+
+networks:
+  mypass-network:
+    driver: bridge
+
+
