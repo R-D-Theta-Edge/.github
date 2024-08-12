@@ -1,32 +1,32 @@
 services:
 
-  mypassfe-node:
+  APPNAME_fe-node:
     build:
       dockerfile: ./docker/node/Dockerfile.node
-    container_name: mypassfe-node
+    container_name: APPNAME_fe-node
     working_dir: /usr/src/app
     ports:
       - "3000:3000"
       - "24678:24678"
     networks:
-      - mypass-network
+      - APPNAME_-network
     restart: always
 
-  mypassapi:
+  APPNAME_api:
     build: 
       dockerfile: ./docker/php/Dockerfile.php
-    container_name: mypass
-    working_dir: /var/www/mypassapi
+    container_name: APPNAME_
+    working_dir: /var/www/APPNAME_api
     networks:
-      - mypass-network
+      - APPNAME_-network
     ports:
       - "9000:9000"
 
-  mypass-webserver:
+  APPNAME_-webserver:
     image: nginx:alpine
     container_name: webserver
     volumes:
-      - ./backend:/var/www/mypassapi
+      - ./backend:/var/www/APPNAME_api
       - ./docker/nginx/api.conf:/etc/nginx/conf.d/api.conf
       - ./frontend:/app
       - ./docker/nginx/node.conf:/etc/nginx/conf.d/node.conf
@@ -34,13 +34,13 @@ services:
       - "80:80"
       - "443:443"
     links:
-      - mypassapi
+      - APPNAME_api
     networks:
-      - mypass-network
+      - APPNAME_-network
 
   db:
     image: postgres:15
-    container_name: mypass_db
+    container_name: APPNAME__db
     restart: always
     environment:
       POSTGRES_DB: laravel
@@ -51,23 +51,23 @@ services:
     volumes:
       - db_data:/var/lib/postgresql/data
     networks:
-      - mypass-network
+      - APPNAME_-network
 
-  mypass-minio:
+  APPNAME_-minio:
     image: minio/minio
-    container_name: mypass-minio
+    container_name: APPNAME_-minio
     command: server /data --console-address ":9001"
     environment:
       MINIO_ACCESS_KEY: minio
       MINIO_SECRET_KEY: minio123
-      MINIO_DEFAULT_BUCKETS: mypassbucket
+      MINIO_DEFAULT_BUCKETS: APPNAME_bucket
     volumes:
       - miniostorage:/data
     ports:
       - "9001:9000"
       - "9002:9001"
     networks:
-      - mypass-network
+      - APPNAME_-network
     restart: always
 
 volumes:
@@ -77,7 +77,7 @@ volumes:
     driver: local
 
 networks:
-  mypass-network:
+  APPNAME_-network:
     driver: bridge
 
 

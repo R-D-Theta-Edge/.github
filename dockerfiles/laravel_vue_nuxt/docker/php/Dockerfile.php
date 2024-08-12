@@ -38,10 +38,10 @@ ARG gid=1000
 RUN groupadd -g $gid $user && useradd -u $uid -g $gid -m $user
 
 #copy only backend directory to the container
-COPY ./backend /var/www/mypassapi
+COPY ./backend /var/www/[PROJECTNAME]
 
 #cd into the app directory
-WORKDIR /var/www/mypassapi
+WORKDIR /var/www/[PROJECTNAME]
 
 # fix permission and ownership of the repo
 RUN chown -R $user:$user /var/www
